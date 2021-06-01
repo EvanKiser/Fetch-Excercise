@@ -22,7 +22,6 @@ app.use('/transactions', require('./routes/transactions'))
 app.use('/points', require('./routes/points'))
 
 const PORT = 5000
-const NODE_ENV = development
 
 // Starting server
-app.listen(PORT, console.log(`Server running in ${NODE_ENV} mode on port ${PORT}`))
+app.listen(PORT, console.log(`Server running on port ${PORT}`))
