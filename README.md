@@ -33,3 +33,4 @@ In the root of the project folder there is a file called <i>data.json</i>. Trans
 - Data.json - I choose to have a data file instead of storing the transactions in memory in order to both have some level of persistent storage between runs as well as allow for multiple test cases in a single run by clearing the file.
 - Transactions Bulk Load - Simplifies inputting test cases 
 - Spending Points - When points for a specific transaction have been spent the transaction stays in the data.json file but the amount of points left for that transaction is now zero.
+- Timestamps - Timestamps are inputted as strings.
