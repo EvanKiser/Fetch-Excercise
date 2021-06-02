@@ -34,3 +34,7 @@ In the root of the project folder there is a file called <i>data.json</i>. Trans
 - Transactions Bulk Load - Simplifies inputting test cases 
 - Spending Points - When points for a specific transaction have been spent the transaction stays in the data.json file but the amount of points left for that transaction is now zero.
 - Timestamps - Timestamps are inputted as strings.
+- Body Params - All body params are inputted as raw JSON.
+
+## Postman Collection
+I have attached a Postman collection in the root of the project's folder with some example API calls.
