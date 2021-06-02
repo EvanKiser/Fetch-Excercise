@@ -27,4 +27,9 @@ npm run dev
 |PATCH|/points/spend|{</br>&nbsp;&nbsp;&nbsp;"points": 5000</br>}|{</br>&nbsp;&nbsp;&nbsp;"DANNON": -100,</br>&nbsp;&nbsp;&nbsp;"UNILEVER": -200,</br>&nbsp;&nbsp;&nbsp;"MILLER COORS": -4700</br>}
 
 ## API Workflow
-In the root of the project folder there is a file called <i>data.json</i>
+In the root of the project folder there is a file called <i>data.json</i>. Transactions can be written to the data file using either POST calls (single insert or bulk insert) in the transaction controller. The data file can be cleared using the DELETE endpoint in the transaction controller. The GET endpoint in the post controller returns the amount of points for each unique payer. The PATCH endpoint in the points controller spends a user's points in chronological order they were recieved by timestamp.
+
+## Design Decisions
+- Data.json - I choose to have a data file instead of storing the transactions in memory in order to both have some level of persistent storage between runs as well as allow for multiple test cases in a single run by clearing the file.
+- Transactions Bulk Load - Simplifies inputting test cases 
+- Spending Points - When points for a specific transaction have been spent the transaction stays in the data.json file but the amount of points left for that transaction is now zero.
