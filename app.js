@@ -13,11 +13,6 @@ app.use(express.urlencoded({ extended: true }))
 // Morgan
 app.use(morgan('tiny'))
 
-// First route
-app.get('/', (req, res) => {
-    res.json({ message: 'Hello Carli' })
-})
-
 app.use('/transactions', require('./routes/transactions'))
 app.use('/points', require('./routes/points'))
 
