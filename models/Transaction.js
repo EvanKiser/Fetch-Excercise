@@ -28,6 +28,23 @@ function insertTransaction(payload) {
     })
 }
 
+function insertMultipleTransactions(payload) {
+    return new Promise((resolve, reject) => {
+        newTransactions = payload
+        newTransactions.forEach(transaction => {
+            newTransaction = 
+            { 
+                "payer": transaction["payer"],
+                "points": transaction["points"],
+                "timestamp": transaction["timestamp"],
+            }
+            transactions.push(newTransaction)
+            helper.writeJSONFile(transactions) 
+        });
+        resolve(newTransactions)
+    })
+}
+
 function pointsBalances() {
     return new Promise((resolve, reject) => {
         if (transactions.length === 0) {
@@ -113,5 +130,6 @@ module.exports = {
     getTransactions,
     pointsBalances,
     spendPoints,
-    deleteAllTransactions
+    deleteAllTransactions,
+    insertMultipleTransactions
 }

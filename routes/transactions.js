@@ -38,4 +38,17 @@ router.delete('/', async (req, res) => {
     })
 })
 
+/* POST A transaction */
+router.post('/bulk', async (req, res) => {
+    await Transactions.insertMultipleTransactions(req.body)
+    .then(transactions => res.status(201).json({
+        message: `All transactions have been created`,
+        content: transactions
+    }))
+    .catch(err => {
+        res.status(400).json({ error: err })
+    })
+})
+
+
 module.exports = router
